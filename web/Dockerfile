@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Utiliser l'image officielle Node.js
 FROM node:20
 
@@ -19,19 +18,3 @@ EXPOSE 3000
 
 # Démarrer l'application Next.js
 CMD ["npm", "run", "dev"]
-=======
-FROM node:18-alpine
-
-# Crée un dossier pour l'application
-WORKDIR /usr/src/app
-
-# Copie les fichiers de package et installe les dépendances
-COPY package*.json ./
-RUN npm install
-
-# Copie tout le reste
-COPY . .
-
-# Lance l'application
-CMD ["node", "bot.js"]
->>>>>>> 38ff92ed6cf459480432ba54fab79de554f0c68e
