@@ -9,11 +9,11 @@ services:
     ports:
       - "19132:19132/udp"
     environment:
-      POSTGRES_HOST: mariadb
-      POSTGRES_PORT: 5432
-      POSTGRES_DB: mc_server
-      POSTGRES_USER: mc_user
-      POSTGRES_PASSWORD: mc_password
+      MYSQL_HOST: mariadb
+      MYSQL_PORT: 5432
+      MYSQL_DB: mc_server
+      MYSQL_USER: mc_user
+      MYSQL_PASSWORD: mc_password
     volumes:
       - "./pocketmine/data/worlds:/pocketmine/worlds/" # Save les mondes persistants
       - "./pocketmine/data/players:/pocketmine/players/" # Save les données des joueurs
