@@ -15,15 +15,15 @@ services:
       MYSQL_USER: mc_user
       MYSQL_PASSWORD: mc_password
     volumes:
-      - "./pocketmine/data/worlds:/pocketmine/worlds/" # Save les mondes persistants
-      - "./pocketmine/data/players:/pocketmine/players/" # Save les données des joueurs
+      - "./pocketmine/data/worlds:/pocketmine/worlds/"
+      - "./pocketmine/data/players:/pocketmine/players/"
     depends_on:
       - mariadb
 
   mariadb:
     networks:
       bdd:
-    image: mariadb
+    image: mariadb:latest
     container_name: mariadb
     ports:
       - "3306:3306"
@@ -36,7 +36,7 @@ services:
   phpmyadmin:
     networks:
       bdd:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
     container_name: phpmyadmin
     ports:
       - "8080:80"
@@ -67,31 +67,6 @@ services:
       - DB_URL=mariadb://mc_user:mc_password@mariadb:5432/mc_server
     depends_on:
       - mariadb
-
-  bookstack:
-    networks:
-      bdd:
-    image: linuxserver/bookstack
-    container_name: bookstack
-    environment:
-      - DB_HOST=mariadb
-      - DB_PORT=3306
-      - DB_DATABASE=bookstack
-      - DB_USERNAME=bookstack_user
-      - DB_PASSWORD=bookstack_password
-      - APP_URL=http://146.19.168.77:8081
-    ports:
-      - "8081:80"
-    depends_on:
-      - mariadb
-
-  focalboard:
-    networks:
-      bdd:
-    image: mattermost/focalboard
-    container_name: focalboard
-    ports:
-      - "8000:8000"
 
 networks:
   bdd:
