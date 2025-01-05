@@ -1,7 +1,9 @@
+version: '3.8'
+
 services:
   pocketmine:
     networks:
-      bdd:
+      - bdd
     build:
       context: ./pocketmine
     image: server
@@ -22,7 +24,7 @@ services:
 
   mariadb:
     networks:
-      bdd:
+      - bdd
     image: mariadb:latest
     container_name: mariadb
     ports:
@@ -35,22 +37,20 @@ services:
 
   phpmyadmin:
     networks:
-      bdd:
+      - bdd
     image: phpmyadmin/phpmyadmin:latest
     container_name: phpmyadmin
     ports:
-      - "8080:80"
+      - "8080:8080"
     environment:
       PMA_HOST: mariadb
       MYSQL_ROOT_PASSWORD: root
 
   nextjs:
     networks:
-      bdd:
+      - bdd
     build: ./web
     container_name: nextjs
-    ports:
-      - "3000:3000"
     environment:
       - DB_URL=mariadb://mc_user:mc_password@mariadb:5432/mc_server
     depends_on:
@@ -58,15 +58,27 @@ services:
 
   discordbot:
     networks:
-      bdd:
+      - bdd
     build: ./discord-bot
     container_name: discordbot
-    ports:
-      - "3001:3001"
     environment:
       - DB_URL=mariadb://mc_user:mc_password@mariadb:5432/mc_server
     depends_on:
       - mariadb
+
+  nginx:
+    networks:
+      - bdd
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - ./server-web/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - nextjs
 
 networks:
   bdd:
