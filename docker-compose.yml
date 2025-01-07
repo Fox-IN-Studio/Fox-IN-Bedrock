@@ -34,6 +34,8 @@ services:
       MYSQL_DATABASE: mc_server
       MYSQL_USER: mc_user
       MYSQL_PASSWORD: mc_password
+    volumes:
+      - ./data/db:/var/lib/mysql
 
   phpmyadmin:
     networks:
