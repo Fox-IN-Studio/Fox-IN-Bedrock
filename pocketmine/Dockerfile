@@ -20,7 +20,7 @@ COPY configurations/ ./
 COPY resources/php.tar.gz ./php.tar.gz
 COPY resources/PocketMine-MP.phar ./PocketMine-MP.phar
 COPY resources/start.sh ./start.sh
-COPY data/worlds/ ./worlds/
+COPY worlds/ ./worlds/
 COPY plugins/ ./plugins/
 COPY resource_packs/ ./resource_packs/
 
