@@ -13,7 +13,7 @@ RUN apt-get update && apt-get upgrade -y && \
 
 
 # Définition du répertoire de travail
-WORKDIR /foxin-be
+WORKDIR /pocketmine
 
 # Copy des données nécessaires pour le serveur PocketMine
 COPY configurations/ ./
