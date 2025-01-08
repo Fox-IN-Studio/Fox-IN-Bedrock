@@ -9,7 +9,7 @@ use pocketmine\world\particle\FloatingTextParticle;
 
 class XPBlockBreakListener implements Listener {
 
-    private function onBlockBreak(BlockBreakEvent $event): void {
+    public function onBlockBreak(BlockBreakEvent $event): void {
         $block = $event->getBlock();
         $player = $event->getPlayer();
 

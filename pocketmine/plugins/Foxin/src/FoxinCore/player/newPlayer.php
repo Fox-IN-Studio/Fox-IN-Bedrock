@@ -7,7 +7,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 
 class newPlayer implements Listener {
 
-    private function onJoin(PlayerJoinEvent $event): void {
+    public function onJoin(PlayerJoinEvent $event): void {
         $player = $event->getPlayer();
 
         if ($player->hasPlayedBefore() === false) {
