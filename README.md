@@ -1,1 +1,1 @@
-# Nginx server
+# Fox-IN Bedrock Server
