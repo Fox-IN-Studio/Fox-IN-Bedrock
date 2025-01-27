@@ -1,0 +1,15 @@
+[submodule "web"]
+	path = web
+	url = https://github.com/Fox-IN-Studio/web.git
+[submodule "server-web"]
+	path = server-web
+	url = https://github.com/Fox-IN-Studio/server-web.git
+[submodule "pocketmine"]
+	path = pocketmine
+	url = https://github.com/Fox-IN-Studio/pocketmine.git
+[submodule "mariadb"]
+	path = mariadb
+	url = https://github.com/Fox-IN-Studio/mariadb.git
+[submodule "discord-bot"]
+	path = discord-bot
+	url = https://github.com/Fox-IN-Studio/discord-bot.git
