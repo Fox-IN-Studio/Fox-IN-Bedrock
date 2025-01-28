@@ -66,6 +66,7 @@ services:
       watch:
         - action: sync
           path: ./web/app
+          target: /app
           ignore:
             - node_modules/
 
@@ -83,7 +84,9 @@ services:
       watch:
         - action: sync
           path: ./discord-bot
+          target: /app
           ignore:
+            - node_modules/
             - package.json
 
   nginx:
