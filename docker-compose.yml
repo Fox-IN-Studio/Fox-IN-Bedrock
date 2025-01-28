@@ -11,7 +11,7 @@ services:
       MYSQL_PORT: 3306
       MYSQL_DB: mc_server
       MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      MYSQL_PASSWORD: Nathan201204@
     volumes:
       - "./pocketmine/data/worlds:/pocketmine/worlds/"
       - "./pocketmine/data/players:/pocketmine/players/"
@@ -31,7 +31,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MARIADB_ROOT_PASSWORD: test
+      MARIADB_ROOT_PASSWORD: Nathan201204@
     volumes:
       - ./data/db:/var/lib/mysql
       - mysqlsock:/run/mysqld
